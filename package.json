@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run build -w frontend && npm run start -w backend",
     "dev": "concurrently \"npm run dev -w backend\" \"npm run start -w frontend\"",
-    "test": "concurrently \"npm test -w backend\" \"npm test -w frontend\""
+    "test": "concurrently \"npm test -w backend\" \"npm test -w frontend\"",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,9 @@
     "frontend"
   ],
   "devDependencies": {
-    "concurrently": "^7.3.0"
+    "concurrently": "^7.3.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "validate-branch-name": "^1.3.0"
   }
 }
