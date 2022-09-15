@@ -1,5 +1,5 @@
-import axios from "axios";
-import errorHandler from "../helpers/errorHandler";
+import axios from 'axios';
+import errorHandler from '../helpers/errorHandler';
 
 // prettier-ignore
 async function getArticles({ headers, limit = 3, location, page = 0, tagName, username }) {

@@ -1,7 +1,7 @@
-import { Outlet, useLocation } from "react-router-dom";
-import AuthorInfo from "../../components/AuthorInfo";
-import ContainerRow from "../../components/ContainerRow";
-import NavItem from "../../components/NavItem";
+import { Outlet, useLocation } from 'react-router-dom';
+import AuthorInfo from '../../components/AuthorInfo';
+import ContainerRow from '../../components/ContainerRow';
+import NavItem from '../../components/NavItem';
 
 function Profile() {
   const { state } = useLocation();
@@ -19,7 +19,11 @@ function Profile() {
           <div className="articles-toggle">
             <ul className="nav nav-pills outline-active">
               <NavItem text="My Articles" url="" state={state} />
-              <NavItem text="Favorited Articles" url="favorites" state={state} />
+              <NavItem
+                text="Favorited Articles"
+                url="favorites"
+                state={state}
+              />
             </ul>
           </div>
           <Outlet />

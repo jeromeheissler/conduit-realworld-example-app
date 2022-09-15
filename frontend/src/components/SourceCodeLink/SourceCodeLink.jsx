@@ -1,5 +1,5 @@
 function SourceCodeLink({ left, right }) {
-  const position = left ? "left" : right ? "right" : "";
+  const position = left ? 'left' : right ? 'right' : '';
 
   return (
     <ul className={`nav navbar-nav pull-xs-${position}`}>

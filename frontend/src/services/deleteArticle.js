@@ -1,11 +1,11 @@
-import axios from "axios";
-import errorHandler from "../helpers/errorHandler";
+import axios from 'axios';
+import errorHandler from '../helpers/errorHandler';
 
 async function deleteArticle({ slug, headers }) {
   try {
     const { data } = await axios({
       headers,
-      method: "DELETE",
+      method: 'DELETE',
       url: `api/articles/${slug}/`,
     });
 

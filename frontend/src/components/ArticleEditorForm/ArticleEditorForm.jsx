@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import getArticle from "../../services/getArticle";
-import setArticle from "../../services/setArticle";
-import FormFieldset from "../FormFieldset";
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import getArticle from '../../services/getArticle';
+import setArticle from '../../services/setArticle';
+import FormFieldset from '../FormFieldset';
 
-const emptyForm = { title: "", description: "", body: "", tagList: "" };
+const emptyForm = { title: '', description: '', body: '', tagList: '' };
 
 function ArticleEditorForm() {
   const { state } = useLocation();
   const [{ title, description, body, tagList }, setForm] = useState(
-    state || emptyForm,
+    state || emptyForm
   );
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const { isAuth, headers, loggedUser } = useAuth();
 
   const navigate = useNavigate();
   const { slug } = useParams();
 
   useEffect(() => {
-    const redirect = () => navigate("/", { replace: true, state: null });
+    const redirect = () => navigate('/', { replace: true, state: null });
     if (!isAuth) return redirect();
 
     if (state || !slug) return;
@@ -35,24 +35,24 @@ function ArticleEditorForm() {
     return () => setForm(emptyForm);
   }, [headers, isAuth, loggedUser.username, navigate, slug, state]);
 
-  const inputHandler = (e) => {
+  const inputHandler = e => {
     const type = e.target.name;
     const value = e.target.value;
 
-    setForm((form) => ({ ...form, [type]: value }));
+    setForm(form => ({ ...form, [type]: value }));
   };
 
-  const tagsInputHandler = (e) => {
+  const tagsInputHandler = e => {
     const value = e.target.value;
 
-    setForm((form) => ({ ...form, tagList: value.split(/,| /) }));
+    setForm(form => ({ ...form, tagList: value.split(/,| /) }));
   };
 
-  const formSubmit = (e) => {
+  const formSubmit = e => {
     e.preventDefault();
 
     setArticle({ headers, slug, body, description, tagList, title })
-      .then((slug) => navigate(`/article/${slug}`))
+      .then(slug => navigate(`/article/${slug}`))
       .catch(setErrorMessage);
   };
 
@@ -100,7 +100,7 @@ function ArticleEditorForm() {
         </FormFieldset>
 
         <button className="btn btn-lg pull-xs-right btn-primary" type="submit">
-          {slug ? "Update Article" : "Publish Article"}
+          {slug ? 'Update Article' : 'Publish Article'}
         </button>
       </fieldset>
     </form>

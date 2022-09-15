@@ -1,1 +1,1 @@
-export { default } from "./ArticlesPagination";
+export { default } from './ArticlesPagination';

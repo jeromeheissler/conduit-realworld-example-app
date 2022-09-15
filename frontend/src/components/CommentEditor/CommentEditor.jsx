@@ -1,27 +1,27 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import postComment from "../../services/postComment";
-import Avatar from "../Avatar";
+import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import postComment from '../../services/postComment';
+import Avatar from '../Avatar';
 
 function CommentEditor({ updateComments }) {
-  const [{ body }, setForm] = useState({ body: "" });
+  const [{ body }, setForm] = useState({ body: '' });
   const { headers, isAuth, loggedUser } = useAuth();
   const { username, image } = loggedUser || {};
   const { slug } = useParams();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    if (body.trim() === "") return;
+    if (body.trim() === '') return;
 
     postComment({ body, headers, slug })
       .then(updateComments)
-      .then(setForm({ body: "" }))
+      .then(setForm({ body: '' }))
       .catch(console.error);
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setForm({ body: e.target.value });
   };
 

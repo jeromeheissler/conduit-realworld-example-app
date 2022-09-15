@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import NavItem from "../NavItem";
-import SourceCodeLink from "../SourceCodeLink";
-import DropdownMenu from "./DropdownMenu";
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import NavItem from '../NavItem';
+import SourceCodeLink from '../SourceCodeLink';
+import DropdownMenu from './DropdownMenu';
 
 function Navbar() {
   const { isAuth } = useAuth();

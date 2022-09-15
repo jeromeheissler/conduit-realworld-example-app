@@ -1,21 +1,21 @@
-import { Link } from "react-router-dom";
-import ArticleMeta from "../ArticleMeta";
-import ArticleTags from "../ArticleTags";
-import FavButton from "../FavButton";
+import { Link } from 'react-router-dom';
+import ArticleMeta from '../ArticleMeta';
+import ArticleTags from '../ArticleTags';
+import FavButton from '../FavButton';
 
 function ArticlesPreview({ articles, loading, updateArticles }) {
-  const handleFav = (article) => {
+  const handleFav = article => {
     const items = [...articles];
 
-    const updatedArticles = items.map((item) =>
-      item.slug === article.slug ? { ...item, ...article } : item,
+    const updatedArticles = items.map(item =>
+      item.slug === article.slug ? { ...item, ...article } : item
     );
 
-    updateArticles((prev) => ({ ...prev, articles: updatedArticles }));
+    updateArticles(prev => ({ ...prev, articles: updatedArticles }));
   };
 
   return articles?.length > 0 ? (
-    articles.map((article) => {
+    articles.map(article => {
       return (
         <div className="article-preview" key={article.slug}>
           <ArticleMeta author={article.author} createdAt={article.createdAt}>

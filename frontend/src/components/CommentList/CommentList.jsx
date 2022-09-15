@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import dateFormatter from "../../helpers/dateFormatter";
-import deleteComment from "../../services/deleteComment";
-import getComments from "../../services/getComments";
-import CommentAuthor from "./CommentAuthor";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import dateFormatter from '../../helpers/dateFormatter';
+import deleteComment from '../../services/deleteComment';
+import getComments from '../../services/getComments';
+import CommentAuthor from './CommentAuthor';
 
 function CommentList({ triggerUpdate, updateComments }) {
   const [comments, setComments] = useState([]);
@@ -15,10 +15,10 @@ function CommentList({ triggerUpdate, updateComments }) {
     getComments({ slug }).then(setComments).catch(console.error);
   }, [slug, triggerUpdate]);
 
-  const handleClick = (commentId) => {
-    if (!isAuth) alert("You need to login first");
+  const handleClick = commentId => {
+    if (!isAuth) alert('You need to login first');
 
-    const confirmation = window.confirm("Want to delete the comment?");
+    const confirmation = window.confirm('Want to delete the comment?');
     if (!confirmation) return;
 
     deleteComment({ commentId, headers, slug })

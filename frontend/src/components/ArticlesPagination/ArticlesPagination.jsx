@@ -1,6 +1,6 @@
-import ReactPaginate from "react-paginate";
-import { useAuth } from "../../context/AuthContext";
-import getArticles from "../../services/getArticles";
+import ReactPaginate from 'react-paginate';
+import { useAuth } from '../../context/AuthContext';
+import getArticles from '../../services/getArticles';
 
 function ArticlesPagination({
   articlesCount,

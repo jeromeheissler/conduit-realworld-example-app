@@ -1,6 +1,6 @@
-import { useAuth } from "../../context/AuthContext";
-import { useFeedContext } from "../../context/FeedContext";
-import FeedNavLink from "./FeedNavLink";
+import { useAuth } from '../../context/AuthContext';
+import { useFeedContext } from '../../context/FeedContext';
+import FeedNavLink from './FeedNavLink';
 
 function FeedToggler() {
   const { isAuth } = useAuth();
@@ -13,7 +13,7 @@ function FeedToggler() {
 
         <FeedNavLink name="global" text="Global Feed" />
 
-        {tabName === "tag" && <FeedNavLink icon name="tag" text={tagName} />}
+        {tabName === 'tag' && <FeedNavLink icon name="tag" text={tagName} />}
       </ul>
     </div>
   );

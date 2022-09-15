@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useAuth } from "../context/AuthContext";
-import getArticles from "../services/getArticles";
+import { useEffect, useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import getArticles from '../services/getArticles';
 
 function useArticles({ location, tabName, tagName, username }) {
   const [{ articles, articlesCount }, setArticlesData] = useState({
@@ -11,7 +11,7 @@ function useArticles({ location, tabName, tagName, username }) {
   const { headers } = useAuth();
 
   useEffect(() => {
-    if (!headers && tabName === "feed") return;
+    if (!headers && tabName === 'feed') return;
 
     setLoading(true);
 

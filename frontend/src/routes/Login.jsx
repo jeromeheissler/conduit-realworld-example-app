@@ -1,11 +1,11 @@
-import { useState } from "react";
-import AuthPageContainer from "../components/AuthPageContainer";
-import LoginForm from "../components/LoginForm";
+import { useState } from 'react';
+import AuthPageContainer from '../components/AuthPageContainer';
+import LoginForm from '../components/LoginForm';
 
 function Login() {
   const [errorMessage, setErrorMessage] = useState();
 
-  const handleError = (error) => {
+  const handleError = error => {
     setErrorMessage(error);
   };
 

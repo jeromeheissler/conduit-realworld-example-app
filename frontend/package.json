@@ -20,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"**/*.{js,jsx}\"",
+    "lint:fix": "eslint \"**/*.{js,jsx}\" --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +41,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.8",
+    "prettier": "^2.7.1"
   }
 }

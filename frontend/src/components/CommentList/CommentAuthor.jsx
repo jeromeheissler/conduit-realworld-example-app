@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import Avatar from "../Avatar";
+import { Link } from 'react-router-dom';
+import Avatar from '../Avatar';
 
 function CommentAuthor({ bio, followersCount, following, image, username }) {
   return (
@@ -10,7 +10,7 @@ function CommentAuthor({ bio, followersCount, following, image, username }) {
         to={`/profile/${username}`}
       >
         <Avatar alt={username} className="comment-author-img" src={image} />
-      </Link>{" "}
+      </Link>{' '}
       <Link
         className="comment-author"
         state={{ bio, followersCount, following, image }}

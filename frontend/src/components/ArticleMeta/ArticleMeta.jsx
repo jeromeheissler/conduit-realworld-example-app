@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import dateFormatter from "../../helpers/dateFormatter";
-import Avatar from "../Avatar";
+import { Link } from 'react-router-dom';
+import dateFormatter from '../../helpers/dateFormatter';
+import Avatar from '../Avatar';
 
 function ArticleMeta({ author, children, createdAt }) {
   const { bio, followersCount, following, image, username } = author || {};

@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import userUpdate from "../../services/userUpdate";
-import FormFieldset from "../FormFieldset";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import userUpdate from '../../services/userUpdate';
+import FormFieldset from '../FormFieldset';
 
 function SettingsForm() {
   const { headers, isAuth, loggedUser, setAuthState } = useAuth();
   const [{ bio, email, image, password, username }, setForm] = useState({
-    bio: loggedUser.bio || "",
+    bio: loggedUser.bio || '',
     email: loggedUser.email,
-    image: loggedUser.image || "",
-    password: loggedUser.password || "",
+    image: loggedUser.image || '',
+    password: loggedUser.password || '',
     username: loggedUser.username,
   });
 
@@ -18,18 +18,18 @@ function SettingsForm() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuth) navigate("/");
+    if (!isAuth) navigate('/');
   }, [isAuth, loggedUser, navigate]);
 
-  const inputHandler = (e) => {
+  const inputHandler = e => {
     const name = e.target.name;
     const value = e.target.value;
 
-    setForm((form) => ({ ...form, [name]: value }));
+    setForm(form => ({ ...form, [name]: value }));
     setInactive(false);
   };
 
-  const formSubmit = async (e) => {
+  const formSubmit = async e => {
     e.preventDefault();
 
     if (inactive) return;

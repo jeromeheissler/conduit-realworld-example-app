@@ -1,7 +1,7 @@
-import ArticlesPagination from "../components/ArticlesPagination";
-import ArticlesPreview from "../components/ArticlesPreview";
-import { useFeedContext } from "../context/FeedContext";
-import useArticleList from "../hooks/useArticles";
+import ArticlesPagination from '../components/ArticlesPagination';
+import ArticlesPreview from '../components/ArticlesPreview';
+import { useFeedContext } from '../context/FeedContext';
+import useArticleList from '../hooks/useArticles';
 
 function HomeArticles() {
   const { tabName, tagName } = useFeedContext();

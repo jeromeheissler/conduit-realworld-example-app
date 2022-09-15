@@ -1,32 +1,32 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import userSignUp from "../../services/userSignUp";
-import FormFieldset from "../FormFieldset";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import userSignUp from '../../services/userSignUp';
+import FormFieldset from '../FormFieldset';
 
 function SignUpForm({ onError }) {
   const [{ username, email, password }, setForm] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: '',
   });
   const { setAuthState } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     userSignUp({ username, email, password })
       .then(setAuthState)
-      .then(() => navigate("/"))
+      .then(() => navigate('/'))
       .catch(onError);
   };
 
-  const inputHandler = (e) => {
+  const inputHandler = e => {
     const name = e.target.name;
     const value = e.target.value;
 
-    setForm((form) => ({ ...form, [name]: value }));
+    setForm(form => ({ ...form, [name]: value }));
   };
 
   return (

@@ -1,5 +1,5 @@
-import axios from "axios";
-import errorHandler from "../helpers/errorHandler";
+import axios from 'axios';
+import errorHandler from '../helpers/errorHandler';
 
 async function getProfile({ headers, username }) {
   try {

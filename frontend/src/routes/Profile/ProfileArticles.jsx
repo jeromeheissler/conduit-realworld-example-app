@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
-import ArticlesPagination from "../../components/ArticlesPagination";
-import ArticlesPreview from "../../components/ArticlesPreview";
-import useArticleList from "../../hooks/useArticles";
+import { useParams } from 'react-router-dom';
+import ArticlesPagination from '../../components/ArticlesPagination';
+import ArticlesPreview from '../../components/ArticlesPreview';
+import useArticleList from '../../hooks/useArticles';
 
 function ProfileArticles() {
   const { username } = useParams();
 
   const { articles, articlesCount, loading, setArticlesData } = useArticleList({
-    location: "profile",
+    location: 'profile',
     username,
   });
 
@@ -31,7 +31,9 @@ function ProfileArticles() {
       />
     </>
   ) : (
-    <div className="article-preview">{username} doesn't have articles.</div>
+    <div className="article-preview">
+      {username} doesn&apos;t have articles.
+    </div>
   );
 }
 

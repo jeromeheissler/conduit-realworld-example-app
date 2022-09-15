@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
-import ArticlesPagination from "../../components/ArticlesPagination";
-import ArticlesPreview from "../../components/ArticlesPreview";
-import useArticleList from "../../hooks/useArticles";
+import { useParams } from 'react-router-dom';
+import ArticlesPagination from '../../components/ArticlesPagination';
+import ArticlesPreview from '../../components/ArticlesPreview';
+import useArticleList from '../../hooks/useArticles';
 
 function ProfileFavArticles() {
   const { username } = useParams();
 
   const { articles, articlesCount, loading, setArticlesData } = useArticleList({
-    location: "favorites",
+    location: 'favorites',
     username,
   });
 
@@ -31,7 +31,9 @@ function ProfileFavArticles() {
       />
     </>
   ) : (
-    <div className="article-preview">{username} doesn't have favorites.</div>
+    <div className="article-preview">
+      {username} doesn&apos;t have favorites.
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
-import ArticleEditorForm from "../components/ArticleEditorForm";
-import ContainerRow from "../components/ContainerRow";
+import ArticleEditorForm from '../components/ArticleEditorForm';
+import ContainerRow from '../components/ContainerRow';
 
 function ArticleEditor() {
   return (

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import getTags from "../../services/getTags";
-import TagButton from "./TagButton";
+import { useEffect, useState } from 'react';
+import getTags from '../../services/getTags';
+import TagButton from './TagButton';
 
 function PopularTags() {
   const [tags, setTags] = useState([]);

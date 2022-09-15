@@ -1,1 +1,1 @@
-export { default } from "./ArticleAuthorButtons";
+export { default } from './ArticleAuthorButtons';

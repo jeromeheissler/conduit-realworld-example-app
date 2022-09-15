@@ -1,12 +1,12 @@
-import axios from "axios";
-import errorHandler from "../helpers/errorHandler";
+import axios from 'axios';
+import errorHandler from '../helpers/errorHandler';
 
 async function userLogin({ email, password }) {
   try {
     const { data } = await axios({
       data: { user: { email, password } },
-      method: "POST",
-      url: "api/users/login",
+      method: 'POST',
+      url: 'api/users/login',
     });
 
     const { user } = data;
@@ -14,7 +14,7 @@ async function userLogin({ email, password }) {
 
     const loggedIn = { headers, isAuth: true, loggedUser: user };
 
-    localStorage.setItem("loggedUser", JSON.stringify(loggedIn));
+    localStorage.setItem('loggedUser', JSON.stringify(loggedIn));
 
     return loggedIn;
   } catch (error) {

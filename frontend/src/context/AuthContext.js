@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import getUser from "../services/getUser";
+import { createContext, useContext, useEffect, useState } from 'react';
+import getUser from '../services/getUser';
 
 const AuthContext = createContext();
 
@@ -7,30 +7,30 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-const loggedIn = JSON.parse(localStorage.getItem("loggedUser"));
+const loggedIn = JSON.parse(localStorage.getItem('loggedUser'));
 
 const authState = {
   headers: null,
   isAuth: false,
   loggedUser: {
     bio: null,
-    email: "",
+    email: '',
     image: null,
-    token: "",
-    username: "",
+    token: '',
+    username: '',
   },
 };
 
 function AuthProvider({ children }) {
   const [{ headers, isAuth, loggedUser }, setAuthState] = useState(
-    loggedIn || authState,
+    loggedIn || authState
   );
 
   useEffect(() => {
     if (!headers) return;
 
     getUser({ headers })
-      .then((loggedUser) => setAuthState((prev) => ({ ...prev, loggedUser })))
+      .then(loggedUser => setAuthState(prev => ({ ...prev, loggedUser })))
       .catch(console.error);
   }, [headers, setAuthState]);
 

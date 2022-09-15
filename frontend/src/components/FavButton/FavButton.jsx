@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import toggleFav from "../../services/toggleFav";
+import { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import toggleFav from '../../services/toggleFav';
 
 function FavButton({ favorited, favoritesCount, handler, right, slug, text }) {
   const [loading, setLoading] = useState(false);
   const { headers, isAuth } = useAuth();
 
-  const buttonPosition = right ? "pull-xs-right" : "";
-  const buttonStyle = favorited ? "active" : "";
-  const buttonText = text ? "Favorite" : !isAuth ? "" : "";
+  const buttonPosition = right ? 'pull-xs-right' : '';
+  const buttonStyle = favorited ? 'active' : '';
+  const buttonText = text ? 'Favorite' : !isAuth ? '' : '';
 
   const handleClick = () => {
-    if (!isAuth) return alert("You need to login first");
+    if (!isAuth) return alert('You need to login first');
 
     setLoading(true);
 

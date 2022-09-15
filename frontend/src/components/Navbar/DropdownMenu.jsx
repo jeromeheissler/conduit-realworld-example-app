@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import userLogout from "../../services/userLogout";
-import Avatar from "../Avatar";
-import DropdownItem from "./DropdownItem";
+import { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import userLogout from '../../services/userLogout';
+import Avatar from '../Avatar';
+import DropdownItem from './DropdownItem';
 
 function DropdownMenu() {
   const [dropdown, setDropdown] = useState(false);
@@ -14,7 +14,7 @@ function DropdownMenu() {
   };
 
   const handleClick = () => {
-    setDropdown((prev) => !prev);
+    setDropdown(prev => !prev);
   };
 
   return (
@@ -29,7 +29,7 @@ function DropdownMenu() {
 
       <div
         className="dropdown-menu"
-        style={{ display: dropdown ? "block" : "none" }}
+        style={{ display: dropdown ? 'block' : 'none' }}
         onMouseLeave={handleClick}
       >
         <DropdownItem

@@ -1,11 +1,11 @@
-import { useState } from "react";
-import CommentEditor from "../../components/CommentEditor";
-import CommentList from "../../components/CommentList";
+import { useState } from 'react';
+import CommentEditor from '../../components/CommentEditor';
+import CommentList from '../../components/CommentList';
 
 function CommentsSection() {
   const [comment, setComment] = useState({});
 
-  const handleUpdates = (e) => {
+  const handleUpdates = e => {
     setComment(e);
   };
 

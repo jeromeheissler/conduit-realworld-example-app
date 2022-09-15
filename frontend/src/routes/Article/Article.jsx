@@ -1,12 +1,12 @@
-import Markdown from "markdown-to-jsx";
-import { useEffect, useState } from "react";
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
-import ArticleMeta from "../../components/ArticleMeta";
-import ArticlesButtons from "../../components/ArticlesButtons";
-import ArticleTags from "../../components/ArticleTags";
-import BannerContainer from "../../components/BannerContainer";
-import { useAuth } from "../../context/AuthContext";
-import getArticle from "../../services/getArticle";
+import Markdown from 'markdown-to-jsx';
+import { useEffect, useState } from 'react';
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
+import ArticleMeta from '../../components/ArticleMeta';
+import ArticlesButtons from '../../components/ArticlesButtons';
+import ArticleTags from '../../components/ArticleTags';
+import BannerContainer from '../../components/BannerContainer';
+import { useAuth } from '../../context/AuthContext';
+import getArticle from '../../services/getArticle';
 
 function Article() {
   const { state } = useLocation();
@@ -21,9 +21,9 @@ function Article() {
 
     getArticle({ slug, headers })
       .then(setArticle)
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
-        navigate("/not-found", { replace: true });
+        navigate('/not-found', { replace: true });
       });
   }, [isAuth, slug, headers, state, navigate]);
 

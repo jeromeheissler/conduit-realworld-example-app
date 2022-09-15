@@ -1,15 +1,15 @@
-import Markdown from "markdown-to-jsx";
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import getProfile from "../../services/getProfile";
-import Avatar from "../Avatar";
-import FollowButton from "../FollowButton";
+import Markdown from 'markdown-to-jsx';
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import getProfile from '../../services/getProfile';
+import Avatar from '../Avatar';
+import FollowButton from '../FollowButton';
 
 function AuthorInfo() {
   const { state } = useLocation();
   const [{ bio, followersCount, following, image }, setAuthor] = useState(
-    state || {},
+    state || {}
   );
   const { headers, loggedUser } = useAuth();
   const { username } = useParams();
@@ -20,14 +20,14 @@ function AuthorInfo() {
 
     getProfile({ headers, username })
       .then(setAuthor)
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
-        navigate("/not-found", { replace: true });
+        navigate('/not-found', { replace: true });
       });
   }, [username, headers, state, navigate]);
 
   const followHandler = ({ followersCount, following }) => {
-    setAuthor((prev) => ({ ...prev, followersCount, following }));
+    setAuthor(prev => ({ ...prev, followersCount, following }));
   };
 
   return (
