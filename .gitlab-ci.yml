@@ -1,0 +1,25 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - install
+  - test
+  - build
+
+install_dependencies:
+  stage: install
+  script:
+    - npm ci
+
+test:
+  stage: test
+  script:
+    - npm run test --workspace frontend
+
+build:
+  stage: build
+  script:
+    - npm run build --workspace frontend
