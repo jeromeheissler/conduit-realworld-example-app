@@ -4,10 +4,14 @@ cache:
   paths:
     - node_modules/
 
+before_script:
+  - apt-get update -qq && apt-get install -y -qq sshpass
+
 stages:
   - install
   - test
   - build
+  - deploy
 
 install_dependencies:
   stage: install
@@ -31,3 +35,10 @@ build:frontend:
   artifacts:
     paths:
       - frontend/build
+
+deploy:frontend:
+  stage: deploy
+  script:
+    - sshpass -V
+    - export SSHPASS=vagrant
+    - sshpass -e scp -o stricthostkeychecking=no -r frontend/build vagrant@192.168.56.10:/var/www/html
