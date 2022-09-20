@@ -41,4 +41,12 @@ deploy:frontend:
   script:
     - sshpass -V
     - export SSHPASS=vagrant
-    - sshpass -e scp -o stricthostkeychecking=no -r frontend/build vagrant@192.168.56.10:/var/www/html
+    - sshpass -e scp -o stricthostkeychecking=no -r frontend/build/* vagrant@192.168.56.10:/var/www/html
+
+deploy:backend:
+  stage: deploy
+  script:
+    - sshpass -V
+    - export SSHPASS=vagrant
+    - sshpass -e scp -o stricthostkeychecking=no -r backend vagrant@192.168.56.10:/var/www/express
+    - sshpass -e ssh vagrant@192.168.56.10 "npm ci"
