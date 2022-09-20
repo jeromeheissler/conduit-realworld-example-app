@@ -30,4 +30,4 @@ build:frontend:
     - npm run build --workspace frontend
   artifacts:
     paths:
-      - build
+      - frontend/build
