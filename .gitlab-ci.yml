@@ -14,12 +14,20 @@ install_dependencies:
   script:
     - npm ci
 
-test:
+test:frontend:
   stage: test
   script:
     - npm run test --workspace frontend
 
-build:
+test:backend:
+  stage: test
+  script:
+    - npm run test --workspace backend
+
+build:frontend:
   stage: build
   script:
     - npm run build --workspace frontend
+  artifacts:
+    paths:
+      - build
