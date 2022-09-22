@@ -1,4 +1,8 @@
-image: node:latest
+#image: node:latest
+image: docker:latest
+
+services:
+  - docker:dind
 
 cache:
   paths:
@@ -31,7 +35,9 @@ test:backend:
 build:frontend:
   stage: build
   script:
-    - npm run build --workspace frontend
+    #- npm run build --workspace frontend
+    - cd frontend
+    - docker build -t .
   artifacts:
     paths:
       - frontend/build
