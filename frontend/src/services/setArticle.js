@@ -14,7 +14,9 @@ async function setArticle({
       data: { article: { title, description, body, tagList } },
       headers,
       method: slug ? 'PUT' : 'POST',
-      url: slug ? `api/articles/${slug}` : 'api/articles',
+      url: slug
+        ? `${process.env.API_URL}/articles/${slug}`
+        : `${process.env.API_URL}/articles`,
     });
 
     return data.article.slug;

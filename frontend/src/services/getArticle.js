@@ -3,7 +3,10 @@ import errorHandler from '../helpers/errorHandler';
 
 async function getArticle({ headers, slug }) {
   try {
-    const { data } = await axios({ headers, url: `api/articles/${slug}` });
+    const { data } = await axios({
+      headers,
+      url: `${process.env.API_URL}/articles/${slug}`,
+    });
 
     return data.article;
   } catch (error) {

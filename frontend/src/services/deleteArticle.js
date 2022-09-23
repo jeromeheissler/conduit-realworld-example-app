@@ -6,7 +6,7 @@ async function deleteArticle({ slug, headers }) {
     const { data } = await axios({
       headers,
       method: 'DELETE',
-      url: `api/articles/${slug}/`,
+      url: `${process.env.API_URL}/articles/${slug}/`,
     });
 
     return data;

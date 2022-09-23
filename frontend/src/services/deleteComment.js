@@ -6,7 +6,7 @@ async function deleteComment({ commentId, headers, slug }) {
     const { data } = await axios({
       headers,
       method: 'DELETE',
-      url: `api/articles/${slug}/comments/${commentId}`,
+      url: `${process.env.API_URL}/articles/${slug}/comments/${commentId}`,
     });
 
     return data;

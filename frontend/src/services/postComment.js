@@ -7,7 +7,7 @@ async function postComment({ body, headers, slug }) {
       data: { comment: { body } },
       headers,
       method: 'POST',
-      url: `api/articles/${slug}/comments`,
+      url: `${process.env.API_URL}/articles/${slug}/comments`,
     });
 
     return data.comment;
